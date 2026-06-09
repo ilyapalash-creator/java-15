@@ -1,7 +1,7 @@
 package ru.netology.statistic;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class CashbackHackServiceTest {
 
@@ -10,15 +10,15 @@ public class CashbackHackServiceTest {
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(900);
         int expected = 100;
-        Assert.assertEquals(actual, expected, "Для суммы 900 должны советовать докупить 100");
+        Assert.assertEquals("Для суммы 900 должны советовать докупить 100", expected, actual);
     }
 
     @Test
-    public void shouldReturn0For1000() {  // этот тест упадёт из-за ошибки
+    public void shouldReturn0For1000() {  // падающий тест
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(1000);
         int expected = 0;
-        Assert.assertEquals(actual, expected, "Для суммы 1000 докупать ничего не нужно");
+        Assert.assertEquals("Для суммы 1000 докупать ничего не нужно", expected, actual);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class CashbackHackServiceTest {
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(1500);
         int expected = 500;
-        Assert.assertEquals(actual, expected, "1500 -> остаток 500");
+        Assert.assertEquals("1500 -> остаток 500", expected, actual);
     }
 
     @Test
@@ -34,6 +34,6 @@ public class CashbackHackServiceTest {
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(2000);
         int expected = 0;
-        Assert.assertEquals(actual, expected, "2000 -> остаток 0");
+        Assert.assertEquals("2000 -> остаток 0", expected, actual);
     }
 }
