@@ -14,7 +14,7 @@ public class CashbackHackServiceTest {
     }
 
     @Test
-    public void shouldReturn0For1000() {  // этот тест упадёт из-за ошибки
+    public void shouldReturn0For1000() { 
         CashbackHackService service = new CashbackHackService();
         int actual = service.remain(1000);
         int expected = 0;
